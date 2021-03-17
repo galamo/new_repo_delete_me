@@ -1,0 +1,29 @@
+<div>
+    <button (click)="togglePanel()"> {{ showElement ? 'Hide' : 'Show' }} Main Panel </button>
+    <div *ngIf="showElement">
+        <h3> color: </h3> <input (dblclick)="colorInputValue = 'green'" [value]="colorInputValue" />
+        <h3> color two way data binding: </h3> <input [(ngModel)]="colorTwoWay" />
+
+        <h3> color two way data binding: </h3> <input type="range" [(ngModel)]="rangeValue" />
+        <h1 [style]="center" (click)="changeHeader('Application Store New Title')">{{ title }}</h1>
+        <h2 [style.color]="colorTwoWay" [style.font-size]="rangeValue + 'px'">
+            Products {{ rangeValue }}
+        </h2>
+        <h3 [style.color]="color" *ngFor="let product of products; index as pIndex">
+            {{ pIndex }} > <span (click)="selectItem(pIndex)"
+                [style.background-color]="selectedIndex === pIndex ? 'grey' : 'yellow'"> {{
+                product }} </span>
+            <button (click)="removeItem(pIndex)">X</button>
+        </h3>
+
+        <div>
+            <h2>Add Product {{ newProduct }}</h2>
+            <input [(ngModel)]="newProduct" />
+            <button (click)="addProduct(newProduct)">Add</button>
+        </div>
+        <button *ngFor="let colorTheme of colors; index as pIndex" [style.background-color]="colorTheme.value"
+            (click)="changeColor(colorTheme.value)"> {{ colorTheme.label }}
+        </button>
+    </div>
+
+</div>

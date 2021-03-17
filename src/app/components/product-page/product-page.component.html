@@ -1,0 +1,10 @@
+<div>
+    <app-add-meal (addNewMealEvent)="addNewProduct($event)"></app-add-meal>
+    <div class="container">
+        <div class="row">
+            <app-product (deleteProductEvent)="deleteProductFromStore($event)" *ngFor="let product of productStore"
+                [product]="product"></app-product>
+        </div>
+    </div>
+
+</div>

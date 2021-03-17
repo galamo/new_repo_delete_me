@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row mt-5 mb-5">
+        <form [formGroup]="mealForm" novalidate class="example-form">
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label style="color:#ca3b74">Meal Name</mat-label>
+                    <input matInput formControlName="mealName">
+
+                    <!-- <span>
+                        {{ mealForm.controls["mealName"].status === 'INVALID' ? 'Error' : 'OK' }}
+                    </span> -->
+                </mat-form-field>
+                <div>
+                    <span style="color:red" *ngFor="let error of mealNameErrors"> {{ error }} </span>
+                </div>
+            </div>
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label style="color:#ca3b74">Image</mat-label>
+                    <input matInput formControlName="mealImage">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label style="color:#ca3b74">Rating</mat-label>
+                    <input matInput type="number" formControlName="mealRating">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label style="color:#ca3b74">Description</mat-label>
+                    <input matInput formControlName="mealDescription">
+                </mat-form-field>
+            </div>
+            <button type="button" (click)="addNewMeal()" mat-button color="primary">Add Meal</button>
+            <button type="button" (click)="resetMeal()" mat-button color="primary">reset</button>
+        </form>
+    </div>
+</div>
